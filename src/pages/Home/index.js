@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { PageArea, SearchArea } from "./styled";
-import useAPI from "../../helpers/OlxAPI";
-import { PageContainer } from "../../components/MainComponents";
-import AdItem from "../../components/partials/AdItem";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { PageArea, SearchArea } from './styled';
+import useAPI from '../../helpers/OlxAPI';
+import { PageContainer } from '../../components/MainComponents';
+import AdItem from '../../components/partials/AdItem';
+import { Link } from 'react-router-dom';
 
 const Page = () => {
   const api = useAPI();
@@ -31,7 +31,7 @@ const Page = () => {
   useEffect(() => {
     const getRecentAds = async () => {
       const json = await api.getAds({
-        sort: "desc",
+        sort: 'desc',
         limit: 8,
       });
       setAdList(json.ads);

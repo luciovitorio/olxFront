@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { PageArea } from "./styled";
-import useAPI from "../../helpers/OlxAPI";
-import { doLogin } from "../../helpers/AuthHandler";
+import React, { useState } from 'react';
+import { PageArea } from './styled';
+import useAPI from '../../helpers/OlxAPI';
+import { doLogin } from '../../helpers/AuthHandler';
 import {
   PageContainer,
   PageTitle,
   ErrorMessage,
-} from "../../components/MainComponents";
+} from '../../components/MainComponents';
 
 const Page = () => {
   const api = useAPI();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
   const [disabled, setDisabled] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    setError("");
+    setError('');
 
     const json = await api.login(email, password);
 
@@ -27,7 +27,7 @@ const Page = () => {
       setError(json.error);
     } else {
       doLogin(json.token, rememberPassword);
-      window.location.href = "/";
+      window.location.href = '/';
     }
 
     setDisabled(false);

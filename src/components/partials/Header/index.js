@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { HeaderArea } from "./styled";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { HeaderArea } from './styled';
 
-import { isLogged, doLogout } from "../../../helpers/AuthHandler";
+import { isLogged, doLogout } from '../../../helpers/AuthHandler';
 
 const Header = () => {
   let logged = isLogged();
 
   const handleLogout = () => {
     doLogout();
-    window.location.href = "/";
+    window.location.href = '/';
   };
 
   return (

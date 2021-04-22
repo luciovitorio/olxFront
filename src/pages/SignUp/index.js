@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { PageArea } from "./styled";
-import useAPI from "../../helpers/OlxAPI";
-import { doLogin } from "../../helpers/AuthHandler";
+import React, { useState, useEffect } from 'react';
+import { PageArea } from './styled';
+import useAPI from '../../helpers/OlxAPI';
+import { doLogin } from '../../helpers/AuthHandler';
 import {
   PageContainer,
   PageTitle,
   ErrorMessage,
-} from "../../components/MainComponents";
+} from '../../components/MainComponents';
 
 const Page = () => {
   const api = useAPI();
 
-  const [name, setName] = useState("");
-  const [stateLoc, setStateLoc] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState('');
+  const [stateLoc, setStateLoc] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [stateList, setStateList] = useState([]);
   const [disabled, setDisabled] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const getStates = async () => {
@@ -31,10 +31,10 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    setError("");
+    setError('');
 
     if (password !== confirmPassword) {
-      setError("As senhas não conferem!");
+      setError('As senhas não conferem!');
       setDisabled(false);
       return;
     }
@@ -45,7 +45,7 @@ const Page = () => {
       setError(json.error);
     } else {
       doLogin(json.token);
-      window.location.href = "/";
+      window.location.href = '/';
     }
 
     setDisabled(false);

@@ -1,12 +1,12 @@
-import React from "react";
-import { Item } from "./styled";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Item } from './styled';
+import { Link } from 'react-router-dom';
 
 function AdItem(props) {
-  let price = "";
+  let price = '';
 
   if (props.data.priceNegotiable) {
-    price = "Preço negociável";
+    price = 'Preço negociável';
   } else {
     price = `R$ ${props.data.price}`;
   }
